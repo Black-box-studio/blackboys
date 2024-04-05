@@ -1,0 +1,53 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Poppins;
+}
+.link {
+  text-decoration: none;
+  padding: 0 5px 0 5px;
+}
+.link:hover{
+  scale: 1.05;
+  padding: 5px;
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: all 0.1s steps(0, end);
+}
+
+.Dropdown {
+  backdrop-filter: blur(10px);
+  width: auto;
+  height: auto;
+}
+.hub {
+  display: flex;
+  right: 50px;
+  cursor: pointer;
+  transition: all 0.1s steps(0, end);
+}
+.hub:hover{ 
+  font-weight: 500;
+  cursor: pointer;
+  color: red;
+  transition: all 0.1s steps(0, end);
+}
+
+@layer components {
+  .active {
+    @apply text-red-600  underline decoration-2 underline-offset-4 decoration-red-600 scale-105;
+  }
+}
+

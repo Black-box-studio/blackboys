@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "text-decoration-thickness",
+          "text-underline-offset",
+          "scale",
+          "scrollbar-width",
+          "scrollbar-color",
+          "@layer",
+          "@apply",
+          "backdrop-filter"
+        ]
+      }
+    ],
+    "axe/structure": [
+      "default",
+      {
+        "listitem": "off"
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 121",
+    "not chrome <= 121",
+    "not edge <= 121",
+    "not opera <= 106",
+    "not samsung <= 23"
+  ]
+}
