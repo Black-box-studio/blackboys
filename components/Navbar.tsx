@@ -64,10 +64,10 @@ export const NavBar = () => {
                             <IoIosArrowDown className=" rotate-180 group-hover:scale-105 group-hover:rotate-0 transition-all" />
                         </p>
                             <div className={"z-99 Dropdown absolute text-zinc-800 text-md py-3 px-5 shadow-md  top-15 rounded-md w-auto grid-col-1 hidden gap-1 bg-white bg-opacity-75 border-white border-opacity-50 transition-all  group-hover:grid"}>
-                                <Link href={""} className="hub items-center whitespace-nowrap py-1"><FaBlog  className="text-3xl px-1 text-red-500"/>{link.links[0]} </Link>
-                                <Link href={"/movies"} className="hub items-center whitespace-nowrap py-1"><BiMoviePlay className="text-3xl px-1 text-red-500"/>{link.links[1]} </Link>
-                                <Link href={"/music"} className="hub items-center whitespace-nowrap py-1"><FcMusic className="text-3xl px-1 text-red-500"/>{link.links[2]} </Link>
-                                <Link href={"/tutorial"} className="hub items-center whitespace-nowrap py-1"><FaBookOpenReader className="text-3xl px-1 text-red-500"/>{link.links[3]} </Link>
+                                <Link href={"/hub/blog"} className="hub items-center whitespace-nowrap py-1"><FaBlog  className="text-3xl px-1 text-red-500"/>{link.links[0]} </Link>
+                                <Link href={"/hub/movies"} className="hub items-center whitespace-nowrap py-1"><BiMoviePlay className="text-3xl px-1 text-red-500"/>{link.links[1]} </Link>
+                                <Link href={"/hub/music"} className="hub items-center whitespace-nowrap py-1"><FcMusic className="text-3xl px-1 text-red-500"/>{link.links[2]} </Link>
+                                <Link href={"/hub/tutorial"} className="hub items-center whitespace-nowrap py-1"><FaBookOpenReader className="text-3xl px-1 text-red-500"/>{link.links[3]} </Link>
                             </div>
                     </div>    
                 ))}
