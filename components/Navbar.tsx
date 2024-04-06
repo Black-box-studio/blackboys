@@ -73,7 +73,7 @@ export const NavBar = () => {
                 ))}
             </div>
             {/* Mobile Menu */}
-                <div className="z-50 flex relative w-8 h-6 flex-col justify-between items-center md:hidden" >
+                <div className="z-50 flex relative w-8 h-6 flex-col justify-between items-center md:hidden" onClick={() => {setOpen(!open);}}>
                     {/* hamburger button */}
                     <span className={`h-[15%] w-[90%] bg-zinc-800 rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5 bg-red-500" : ""}`} />
                     <span className={` bg-red-500 rounded-lg transition-all duration-10 ease-in-out ${open ? "w-0 h-[0]" : "w-[90%] h-[15%]"}`} />
