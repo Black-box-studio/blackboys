@@ -1,5 +1,4 @@
 "use client"
-
 import { Dropdownlink , NavLinks } from "@/constants";
 import Link from "next/link"
 import { useEffect, useState } from "react";
@@ -7,18 +6,18 @@ import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaBlog } from "react-icons/fa";
 import { BiMoviePlay } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
 import { FcMusic } from "react-icons/fc";
 import { FaBookOpenReader } from "react-icons/fa6";
-import { FiMenu } from "react-icons/fi";
 import React from "react";
 
-export const NavBar = () : JSX.Element => {
+export const NavBar = () => {
     // HeaderNavbar    
+    const[open, setOpen] = useState(false);
     const currentPath =usePathname();
     const isActive = (path: string) => {
         return currentPath === path;
     }
+
     const [header, setHeader] = useState(false);
 
     useEffect(() => {        
@@ -33,13 +32,13 @@ export const NavBar = () : JSX.Element => {
         return () => {
             window.removeEventListener("scroll", scrollHeader);
         };
-    }, []);
+    });
 
 
 
   return (
-    <div className={header ? "ease-linear duration-500 z-50 fixed w-full top-0 bg-white bg-opacity-5 shadow-sm backdrop-blur-sm border-b border-opacity-25 border-width-1 border-white" : "w-full shadow-sm absolute z-50  backdrop-blur-sm"}>
-        <div className="header z-50 flex w-[80%] mx-auto justify-between py-[15px]">
+    <div className={header ? "ease-linear duration-500 z-50 fixed w-full top-0 bg-red-500 bg-opacity-5 shadow-sm backdrop-blur-sm border-b border-opacity-25 border-width-1 border-white" : "w-full shadow-sm absolute z-50  backdrop-blur-sm" }>
+        <div className="header z-50 flex w-[80%] mx-auto items-center justify-between py-[15px]">
             {/* Logo */}
             <div className="logo">
                 <Link href="/">
@@ -64,17 +63,23 @@ export const NavBar = () : JSX.Element => {
                             <span className="">{link.title}</span>
                             <IoIosArrowDown className=" rotate-180 group-hover:scale-105 group-hover:rotate-0 transition-all" />
                         </p>
-                            <div className={"z-99 Dropdown absolute text-zinc-800 text-md py-3 px-5 shadow-md backdrop-blur-sm top-15 rounded-md w-auto grid-col-1 hidden gap-1 bg-white bg-opacity-75 border-white border-opacity-50 transition-all  group-hover:grid"}>
-                                <Link href={"/blog"} className="hub items-center whitespace-nowrap py-1"><FaBlog  className="text-3xl px-1 text-red-500"/>{link.links[0]} </Link>
-                                <Link href={"/movies"} className="hub items-center whitespace-nowrap py-1"><BiMoviePlay className="text-3xl px-1 text-red-500"/>{link.links[1]} </Link>
-                                <Link href={"/music"} className="hub items-center whitespace-nowrap py-1"><FcMusic className="text-3xl px-1 text-red-500"/>{link.links[2]} </Link>
-                                <Link href={"/tutorial"} className="hub items-center whitespace-nowrap py-1"><FaBookOpenReader className="text-3xl px-1 text-red-500"/>{link.links[3]} </Link>
+                            <div key={link.title} className={"z-99 Dropdown absolute text-zinc-800 text-md py-3 px-5 shadow-md  top-15 rounded-md w-auto grid-col-1 hidden gap-1 bg-white bg-opacity-75 border-white border-opacity-50 transition-all  group-hover:grid"}>
+                                <Link key={link.key[0]} href={link.links[0]} className="hub items-center whitespace-nowrap py-1"><FaBlog  className="text-3xl px-1 text-red-500"/>{link.text[0]} </Link>
+                                <Link key={link.key[1]} href={link.links[1]} className="hub items-center whitespace-nowrap py-1"><BiMoviePlay className="text-3xl px-1 text-red-500"/>{link.text[1]} </Link>
+                                <Link key={link.key[2]} href={link.links[2]} className="hub items-center whitespace-nowrap py-1"><FcMusic className="text-3xl px-1 text-red-500"/>{link.text[2]} </Link>
+                                <Link key={link.key[3]} href={link.links[3]} className="hub items-center whitespace-nowrap py-1"><FaBookOpenReader className="text-3xl px-1 text-red-500"/>{link.text[3]} </Link>
                             </div>
                     </div>    
                 ))}
             </div>
-            <FiMenu className="cursor-pointer text-zinc-800 text-3xl md:hidden hover:scale-105" onClick={() => setHeader(true)}/>
-            <AiOutlineClose  className="cursor-pointer text-zinc-800 text-3xl hidden hover:scale-105" onClick={() => setHeader(false)}/>
+            {/* Mobile Menu */}
+                <div className="z-50 flex relative w-8 h-6 flex-col justify-between items-center md:hidden" onClick={() => {setOpen(!open);}}>
+                    {/* hamburger button */}
+                    <span className={`h-[15%] w-[90%] bg-zinc-800 rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-2.5 bg-red-500" : ""}`} />
+                    <span className={` bg-red-500 rounded-lg transition-all duration-10 ease-in-out ${open ? "w-0 h-[0]" : "w-[90%] h-[15%]"}`} />
+                    <span className={`h-[15%] w-[90%] bg-zinc-800 rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-1.5 bg-red-500" : ""}`} />
+                 </div>
+
         </div>
     </div>
   )

@@ -31,6 +31,7 @@ body {
   backdrop-filter: blur(10px);
   width: auto;
   height: auto;
+  transition: all 1s steps(0, end);
 }
 .hub {
   display: flex;
@@ -49,5 +50,7 @@ body {
   .active {
     @apply text-red-600  underline decoration-2 underline-offset-4 decoration-red-600 scale-105;
   }
+  .live {
+    @apply text-red-600  underline decoration-2 underline-offset-4 decoration-red-600 scale-105;
+  }
 }
-
